@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class mainController extends Controller
 {
@@ -180,8 +182,28 @@ class mainController extends Controller
         }
 
         $type = $type1.$type2.$type3.$type4;
-        echo($type);
+        //echo($type);
+        // $ID_user = Auth::id();
+        $ID_user = 1;
+        $maxID = DB::table('result')->max('ID_result');
+        if($maxID == null){
+            $ID_result = 1;
+        }else{
+            $ID_result = $maxID+1;
+        }        
 
+        DB::table('result')->insert([
+            'ID_result' => $ID_result,
+            'ID_user' => $ID_user,
+            'personality' => $type
+        ]);
+
+        return view('MajorElective/ArtiIntel');
         
+    }
+
+    public function artiIntel(request $request){
+        $opt1 = $request->input('button1');
+        echo($opt1);
     }
 }

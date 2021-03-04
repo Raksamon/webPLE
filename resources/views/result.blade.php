@@ -14,9 +14,64 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Kanit', sans-serif;
+		}
+
+		.navbar {
+			overflow: hidden;
+			background-color: #2e2b37;
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
+
+		.navbar a {
+			float: right;
+			display: block;
+			color: whitesmoke;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 17px;
+		}
+
+		.navbar a:hover {
+			background: lightcyan;
+			color: black;
+		}
+
+		.navbar a.active {
+			background-color: #e37b7c;
+			color: white;
+		}
+		.navbar i{
+			float: left;
+			margin: 15px;
+			font-size: 23px;
+
+		}
+	</style>
 </head>
 
+
+
 <body class="is-preload">
+
+	<div class="navbar align-right">
+		<a href="{{ route('logout') }}" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">Logout</a>
+		<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+			@csrf
+		</form>
+		<a href="#result" class="active">Result</a>
+		<a href="/test">Personality test</a>
+		<a href="#home">Home</a>
+		<i class="fa fa-user-circle">&nbsp;&nbsp;{{Auth::user()->name}}</i>
+	</div>
 
 	<!-- Page Wrapper -->
 	<div id="page-wrapper">
@@ -71,51 +126,7 @@
 				</div>
 			</section>
 
-			
-			<!-- Panel (Spotlight) -->
-			<!-- <section class="panel spotlight medium right" id="two">
-				<div class="content span-7">
-					<h2 class="major">Job</h2>
-					<p>Mauris et ligula arcu. Proin dapibus convallis accumsan. Lorem maximus hendrerit orci, sit amet elementum massa hendrerit sed. Donec et ullamcorper ligula. Suspendisse amet potenti. Ut pretium libero eleifend euismod sed tristique. Quisque dictum magna risus, id ultricies justo sagittis vitae. Sed id odio tempor, porttitor elit amet, gravida hendrerit fringilla lorem ipsum dolor.</p>
-					<ul class="actions">
-						<li><a href="#three" class="button primary color1 circle icon solid fa-angle-right">Take the test</a></li>
-					</ul>
-				</div>
-				<div class="image filtered tinted" data-position="top left">
-					<p>Mauris et ligula arcu. Proin dapibus convallis accumsan. Lorem maximus hendrerit orci, sit amet elementum massa hendrerit sed. Donec et ullamcorper ligula. Suspendisse amet potenti. Ut pretium libero eleifend euismod sed tristique. Quisque dictum magna risus, id ultricies justo sagittis vitae. Sed id odio tempor, porttitor elit amet, gravida hendrerit fringilla lorem ipsum dolor.</p>
-					<img src="images/pic02.jpg" alt="" />
-				</div>
-			</section> -->
-
-			<!-- Panel -->
-			<!-- <section class="panel color1" id="two">
-				
-				<div class="content span-3">
-					<h2 class="major">Job</h2>
-					<p>Sed vel nibh libero. Mauris et lorem pharetra massa lorem turpis congue pulvinar. Vivamus sed feugiat finibus. Duis amet bibendum amet sed. Duis mauris ex, dapibus sed ligula tempus volutpat magna etiam.</p>
-					<ul class="actions">
-						<li><a href="#three" class="button primary color1 circle icon solid fa-angle-right">Take the test</a></li>
-					</ul>
-				</div>
-				
-				<div class="inner">
-				<div class="content span-3">
-					<ul class="grid-icons three connected">
-						<li><span class="icon fa-gem"><span class="label">Lorem</span></span></li>
-						<li><span class="icon solid fa-camera-retro"><span class="label">Ipsum</span></span></li>
-						<li><span class="icon solid fa-cog"><span class="label">Dolor</span></span></li>
-						<li><span class="icon solid fa-paper-plane"><span class="label">Sit</span></span></li>
-						<li><span class="icon solid fa-chart-bar"><span class="label">Amet</span></span></li>
-						<li><span class="icon solid fa-code"><span class="label">Nullam</span></span></li>
-					</ul>
-				</div>
-				</div>
-			</section> -->
-
-		<!-- Panel -->
-	
-
-	</div>
+		</div>
 
 	</div>
 

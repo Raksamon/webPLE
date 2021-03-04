@@ -30,7 +30,7 @@
         <div id="wrapper">
 
             <section class="panel banner right">
-            <div class="image filtered span-3" data-position="25% 25%">
+                <div class="image filtered span-3" data-position="25% 25%">
                     <img src="images/signin-image.jpg" alt="" />
                 </div>
                 <div class="content color0 span-5">
@@ -40,14 +40,27 @@
                                 <div class="signin-content">
                                     <div class="signin-form">
                                         <h2 class="form-title">L o g i n</h2>
-                                        <form method="POST" class="register-form" id="login-form">
+                                        <form method="POST" class="register-form" id="login-form" action="{{route('login')}}">
                                             <div class="form-group">
+                                            @csrf
                                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                                <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
+                                                <input type="email" id="email" placeholder="Your Email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                                <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
+                                                <input type="password" id="your_pass" placeholder="Password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" />
+
+                                                @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                             <br>
                                             <div class="form-group form-button">
@@ -61,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </section>
 
         </div>
@@ -75,6 +88,23 @@
     <script src="assets/js/main.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- sweet 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script src="js_login/main.js"></script>
+    @if (Session('success'))
+    <script type="text/javascript">
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลงทะเบียนเรียบร้อยแล้ว',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    </script>
+    @endif
 
 </body>
 

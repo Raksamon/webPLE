@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,17 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/Sign-up', function () {
-    return view('Sign-up');
-});
-
-Route::get('/Sign-in', function () {
-    return view('Sign-in');
-});
-
-
-Route::get('/intro', function () {
+Route::get('/Home', function () {
     return view('index');
 });
 
@@ -57,6 +50,7 @@ Route::get('/softEn', function () {
 Route::get('/ScienComp', function () {
     return view('ScienComp');
 });
+
 Route::get('/parallel', function () {
     return view('parallel');
 });
@@ -68,5 +62,8 @@ Route::get('/result', function () {
 
 // Route::get('/result', 'App\Http\Controllers\mainController@test');
 Auth::routes();
+Route::post('/userCheck','App\Http\Controllers\registerController@userReg');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('auth/login');
+});

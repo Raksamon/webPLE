@@ -29,38 +29,40 @@ Route::get('/intro', function () {
 Route::get('/Test', function () {
     return view('test');
 });
+Route::get('/Test/confirm','App\Http\Controllers\mainController@test');
+
+Route::get('MajorElective/ArtiIntel', function () {
+    return view('/MajorElective/ArtiIntel');
+});
+Route::get('Test/MajorElective/ArtiIntel/confirm','App\Http\Controllers\mainController@artiIntel');
+
+Route::get('/MajorElective/comArch', function () {
+    return view('/MajorElective/comArch');
+});
+Route::get('/MajorElective/netSecurity', function () {
+    return view('/MajorElective/netSecurity');
+});
+Route::get('/MajorElective/data', function () {
+    return view('/MajorElective/data');
+});
+Route::get('/MajorElective/ComGraph', function () {
+    return view('/MajorElective/ComGraph');
+});
+
+Route::get('/MajorElective/softEn', function () {
+    return view('/MajorElective/softEn');
+});
+
+Route::get('/MajorElective/ScienComp', function () {
+    return view('/MajorElective/ScienComp');
+});
+Route::get('/MajorElective/parallel', function () {
+    return view('/MajorElective/parallel');
+});
 
 Route::get('/MajorElective', function () {
     return view('Major Elective');
 });
-Route::get('/ArtiIntel', function () {
-    return view('ArtiIntel');
-});
-
-Route::get('/comArch', function () {
-    return view('comArch');
-});
-Route::get('/netSecurity', function () {
-    return view('netSecurity');
-});
-Route::get('/data', function () {
-    return view('data');
-});
-Route::get('/ComGraph', function () {
-    return view('ComGraph');
-});
-
-Route::get('/softEn', function () {
-    return view('softEn');
-});
-
-Route::get('/ScienComp', function () {
-    return view('ScienComp');
-});
-Route::get('/parallel', function () {
-    return view('parallel');
-});
-
 
 Route::get('/result', function () {
     return view('result');

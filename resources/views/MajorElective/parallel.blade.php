@@ -10,9 +10,9 @@
     <title>webPLE | Major Elective</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
 
     <style>
@@ -66,10 +66,10 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/main.js"></script>
 
     <script type="text/javascript">
         let buttons = document.querySelectorAll('input[type="button" ]');

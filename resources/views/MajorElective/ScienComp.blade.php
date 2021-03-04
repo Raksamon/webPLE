@@ -10,9 +10,9 @@
     <title>webPLE | Major Elective</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
 
     <style>
@@ -49,18 +49,13 @@
                 </div>
                 <div class="inner columns aligned">
                     <div class="span-5-25">
-                        <form action="ComGraph">
-                            <h3 class="major">Computer Graphics and Visualization</h3>
+                        <form action="ScienComp">
+                            <h3 class="major">Scientific Computing and Simulation</h3>
                             <ul class="actions">
-                                <li><input type="button" id="button0" value="Digital Image and Video Compression" class="button large primary color2"></li>
-                                <li><input type="button" id="button1" value="Machine Vision" class="button large primary color2"></li>
+                                <li><input type="button" id="button0" value="Basic Compiler Design" class="button large primary color2"></li>
                             </ul>
-                            <ul class="actions">
-                                <li><input type="button" id="button2" value="Computer Graphics" class="button large primary color2"></li>
-                                <li><input type="button" id="button3" value="Game Development" class="button large primary color2"></li>
-
-                            </ul>
-                        <br>
+                           
+                            <br>                    
                             <div class="align-right">
                                 <h3>ถัดไป <button type="submit" class="button primary color1 circle icon solid fa-angle-right" id="check-buttons"></button></h3>
                             </div>
@@ -72,10 +67,10 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/main.js"></script>
 
     <script type="text/javascript">
         let buttons = document.querySelectorAll('input[type="button" ]');

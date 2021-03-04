@@ -10,9 +10,9 @@
     <title>webPLE | Major Elective</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
 
     <style>
@@ -23,7 +23,7 @@
 
         .highlighted {
             background-color: black;
-            outline: 5px solid rgba(0, 0, 0);
+            outline: 3px solid rgba(0, 0, 0);
         }
 
         .highlighted:active {
@@ -41,7 +41,7 @@
         <div id="wrapper">
 
             <section class="panel color1">
-                <div class="intro joined">
+                <div class="intro joined"">
                     <h2 class=" major">บันทึกข้อมูล <br>Major Elective</h2>
                     <p>โปรดคลิกรายชื่อวิชาที่ตรงกับ<br>Major Elective ของท่าน</<i class="ri-home-3-fill">
                     </p>
@@ -49,34 +49,37 @@
                 </div>
                 <div class="inner columns aligned">
                     <div class="span-5-25">
-                        <form action="data">
-                            <h3 class="major">Databases and Data Mining</h3>
+                        <form action="softEn">
+                            <h3 class="major">Software Engineering</h3>
                             <ul class="actions">
-                                <li><input type="button" id="button0" value="Advanced Database Systems" class="button large primary color2"></li>
-                                <li><input type="button" id="button1" value="Data Mining for Computer Engineering" class="button large primary color2"></li>
+                                <li><input type="button" id="button0" value="Advanced Project Management for ISNE" class="button large primary color2"></li>
+                                <li><input type="button" id="button1" value="Risk Management in Software Project" class="button large primary color2"></li>
                             </ul>
                             <ul class="actions">
-                                <li><input type="button" id="button2" value="Information Systems" class="button large primary color2"></li>
+                                <li><input type="button" id="button2" value="Mobile Application Development" class="button large primary color2"></li>
+                                <li><input type="button" id="button3" value="Personal Software Process Improvement" class="button large primary color2"></li>
                             </ul>
-                            <br>
+                            <ul class="actions">
+                                <li><input type="button" id="button4" value="Software Project Management for Computer Engineering" class="button large primary color2"></li>
+                                <li><input type="button" id="button5" value=Software Testing for Computer Engineering" class="button large primary color2"></li>
+                                <li><input type="button" id="button6" value="HCI" class="button large primary color2"></li>
+                            </ul>
+                            <br>                    
                             <div class="align-right">
                                 <h3>ถัดไป <button type="submit" class="button primary color1 circle icon solid fa-angle-right" id="check-buttons"></button></h3>
                             </div>
                         </form>
                     </div>
                 </div>
-
             </section>
-
         </div>
-
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/main.js"></script>
 
     <script type="text/javascript">
         let buttons = document.querySelectorAll('input[type="button" ]');

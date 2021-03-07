@@ -156,7 +156,7 @@
         <div id="wrapper">
 
             <section class="panel color1">
-                <div class="intro joined"">
+                <div class="intro joined">
                     <h2 class=" major">บันทึกข้อมูล <br>Major Elective</h2>
                     <p>โปรดคลิกรายชื่อวิชาที่ตรงกับ<br>Major Elective ของท่าน</<i class="ri-home-3-fill">
                     </p>
@@ -164,7 +164,7 @@
                 </div>
                 <div class="inner columns aligned">
                     <div class="span-5-25">
-                        <form action="comArch">
+                        <form action="comArch/confirm">
                             <h3 class="major">Computer Architecture and Organisation</h3>
                             <div class="container">
                                 <ul class="ks-cboxtags">
@@ -173,6 +173,7 @@
                                     <li><input type="checkbox" id="checkboxThree" value="Digital System Design"><label for="checkboxThree">Digital System Design</label></li>
                                     <li><input type="checkbox" id="checkboxFour" value="System Analysis and Design for Computer Engineering"><label for="checkboxFour">System Analysis and Design for Computer Engineering</label></li>
                                     <li><input type="checkbox" id="checkboxFive" value="Remote Monitoring and Control Systems"><label for="checkboxFive">Remote Monitoring and Control Systems</label></li>
+                                    <input type="hidden" id="ID_result" name="ID_result" value={{$ID_result}}>
                                 </ul>
                             </div>
                             <br><br>

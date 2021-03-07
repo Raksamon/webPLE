@@ -196,8 +196,8 @@ class mainController extends Controller
             'ID_user' => $ID_user,
             'personality' => $type
         ]);
-
-        return view('MajorElective/ArtiIntel');
+        
+        return view('MajorElective/ArtiIntel',['ID_result'=>$ID_result]);
         
     }
 
@@ -212,18 +212,32 @@ class mainController extends Controller
         $opt8 = $request->input('checkboxEight');
         $opt9 = $request->input('checkboxNine');
         $opt10 = $request->input('checkboxTen');
+        //get value from hidden input
+        $ID_result = $request->input('ID_result');
 
-        if($opt1 != null){
+        //options array
+        $opts = array($opt1, $opt2, $opt3, $opt4, $opt5, $opt6, $opt7, $opt8, $opt9, $opt10); 
 
+        //find max to generate ID_majorElective
+        $maxID = DB::table('majorelective')->max('ID_majorElective');
+        if($maxID == null){
+            $ID_majorElective = 1;
+        }else{
+            $ID_majorElective = $maxID+1;
+        }        
+
+        //insert selected subject to majorelective table
+        for($i=0; $i<sizeof($opts); $i++){
+            if($opts[$i] != null){ //insert only selected options                
+                DB::table('majorelective')->insert([
+                    'ID_majorElective' => $ID_majorElective+$i,
+                    'ID_result' => $ID_result,
+                    'ID_subject' => $opts[$i]
+                ]);
+            }
         }
-        
-        DB::table('majorelective')->insert([
-            'ID_majorElective' => $ID_majorElective,
-            'ID_result' => $ID_result,
-            'ID_subject' => 	$ID_subject
-        ]);
 
-        // return view('MajorElective/comArch');
+        return view('MajorElective/comArch',['ID_result'=>$ID_result]);
     }
 
     public function comArch(request $request){

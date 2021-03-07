@@ -32,6 +32,8 @@ Route::get('Test/MajorElective/ArtiIntel/confirm','App\Http\Controllers\mainCont
 Route::get('/MajorElective/comArch', function () {
     return view('/MajorElective/comArch');
 });
+Route::get('MajorElective/comArch/confirm','App\Http\Controllers\mainController@comArch');
+
 Route::get('/MajorElective/netSecurity', function () {
     return view('/MajorElective/netSecurity');
 });

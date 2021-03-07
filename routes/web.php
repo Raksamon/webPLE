@@ -61,6 +61,7 @@ Route::get('/result', function () {
     return view('result');
 });
 
+
 // Route::get('/result', 'App\Http\Controllers\mainController@test');
 Auth::routes();
 Route::post('/userCheck','App\Http\Controllers\registerController@userReg');

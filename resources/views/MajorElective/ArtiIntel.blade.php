@@ -16,23 +16,138 @@
     </noscript>
 
     <style>
-        input[type="button"] {
-            min-width: 100px;
+        body {
+            margin: 0;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #2e2b37;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar a {
+            float: right;
             display: block;
+            color: whitesmoke;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
         }
 
-        .highlighted {
-            background-color: black;
-            outline: 4px solid rgba(0, 0, 0);
+        .navbar a:hover {
+            background: lightcyan;
+            color: black;
         }
 
-        .highlighted:active {
-            background-color: #ffe4b4;
+        .navbar a.active {
+            background-color: #e37b7c;
+            color: white;
+        }
+
+        .navbar i {
+            float: left;
+            margin: 15px;
+            font-size: 23px;
+
+        }
+
+        .container {
+            max-width: 900px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 14px;
+        }
+
+        ul.ks-cboxtags {
+            list-style: none;
+            padding: 20px;
+        }
+
+        ul.ks-cboxtags li {
+            display: inline;
+        }
+
+        ul.ks-cboxtags li label {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, .9);
+            border: 2px solid rgba(139, 139, 139, .3);
+            color: gray;
+            border-radius: 8px;
+            white-space: nowrap;
+            margin: 5px 0px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: all .2s;
+        }
+
+        ul.ks-cboxtags li label {
+            padding: 8px 28px;
+            cursor: pointer;
+        }
+
+        ul.ks-cboxtags li label::before {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 700;
+            font-size: 12px;
+            padding: 2px 4px 2px 2px;
+            content: "\f067";
+            transition: transform .3s ease-in-out;
+        }
+
+        ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
+            content: "\f00c";
+            transform: rotate(-360deg);
+            transition: transform .3s ease-in-out;
+        }
+
+        ul.ks-cboxtags li input[type="checkbox"]:checked+label {
+            border: 2px solid whitesmoke;
+            background-color: #ffbb3e;
+            color: black;
+            transition: all .2s;
+        }
+
+        ul.ks-cboxtags li input[type="checkbox"] {
+            display: absolute;
+        }
+
+        ul.ks-cboxtags li input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        ul.ks-cboxtags li input[type="checkbox"]:focus+label {
+            border: 2px solid #e9a1ff;
         }
     </style>
 </head>
 
 <body class="is-preload">
+
+    <div class="navbar">
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">Logout</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        <a href="#result">Test results</a>
+        <a href="#test">Personality test</a>
+        <a href="#home" class="active">Home</a>
+        <i class="fa fa-user-circle">&nbsp;&nbsp;{{Auth::user()->name}}</i>
+    </div>
 
     <!-- Page Wrapper -->
     <div id="page-wrapper">
@@ -47,35 +162,30 @@
 
                 </div>
                 <div class="inner columns aligned">
-                    <div class="span-5-75">
+                    <div class="span-5-25">
                         <form action="MajorElective/ArtiIntel/confirm">
+
                             <h3 class="major">Artificial Intelligence</h3>
-                            <ul class="actions">
-                                <li><input type="button" id="button0" value="Digital Image Processing" class="button large primary color2"></li>
-                                <li><input type="button" id="button1" value="Fundamentals of Computation for Computer Engineers" class="button large primary color2"></li>
-                            </ul>
-                            <ul class="actions">
-                                <li><input type="button" id="button2" value="Introduction to Computational Intelligence for Computer Engineering" class="button large primary color2"></li>
-                                <li><input type="button" id="button3" value="Robotics" class="button large primary color2"></li>
-                            </ul>
-                            <ul class="actions">
-                                <li><input type="button" id="button4" value="Machine Vision" class="button large primary color2"></li>
-                                <li><input type="button" id="button5" value="Bioinformatics Programming" class="button large primary color2"></li>
-                                <li><input type="button" id="button6" value="Principles of Control Systems" class="button large primary color2"></li>
-                            </ul>
-                            <ul class="actions">
-                                <li><input type="button" id="button7" value="Introduction to Neuro-Fuzzy Systems" class="button large primary color2"></li>
-                                <li><input type="button" id="button8" value="Computer-Aided Manufacturing" class="button large primary color2"></li>
-                                <li><input type="button" id="button9" value="NLP" class="button large primary color2"></li>
-                            </ul>
-                         
+                            <div class="container">
+                                <ul class="ks-cboxtags">
+                                    <li><input type="checkbox" id="checkboxOne" name="checkboxOne" value="Digital Image Processing"><label for="checkboxOne">Digital Image Processing</label></li>
+                                    <li><input type="checkbox" id="checkboxTwo" name="checkboxTwo" value="Fundamentals of Computation for Computer Engineers"><label for="checkboxTwo">Fundamentals of Computation for Computer Engineers</label></li>
+                                    <li><input type="checkbox" id="checkboxThree" name="checkboxThree" value="Introduction to Computational Intelligence for Computer Engineering"><label for="checkboxThree">Introduction to Computational Intelligence for Computer Engineering</label></li>
+                                    <li><input type="checkbox" id="checkboxFour" name="checkboxFour" value="Robotics"><label for="checkboxFour">Robotics</label></li>
+                                    <li><input type="checkbox" id="checkboxFive" name="checkboxFive" value="Bioinformatics Programming"><label for="checkboxFive">Bioinformatics Programming</label></li>
+                                    <li><input type="checkbox" id="checkboxSix" name="checkboxSix" value="Machine Vision"><label for="checkboxSix">Machine Vision</label></li>
+                                    <li><input type="checkbox" id="checkboxSeven" name="checkboxSeven" value="Principles of Control Systems"><label for="checkboxSeven">Principles of Control Systems</label></li>
+                                    <li><input type="checkbox" id="checkboxEight" name="checkboxEight" value="Introduction to Neuro-Fuzzy Systems"><label for="checkboxEight">Introduction to Neuro-Fuzzy Systems</label></li>
+                                    <li><input type="checkbox" id="checkboxNine" name="checkboxNine" value="Computer-Aided Manufacturing"><label for="checkboxNine">Computer-Aided Manufacturing</label></li>
+                                    <li><input type="checkbox" id="checkboxTen" name="checkboxTen" value="NLP"><label for="checkboxTen">NLP</label></li>
+                                </ul>
+                            </div>
+
                             <div class="align-right">
-                                <h3>ถัดไป <button type="submit" class="button primary color1 circle icon solid fa-angle-right" id="check-buttons"></button></h3>
+                                <h3>ถัดไป <button type="submit" class="button primary color1 circle icon solid fa-angle-right" id="next"></button></h3>
                             </div>
                         </form>
                     </div>
-
-                    
                 </div>
             </section>
 
@@ -88,35 +198,6 @@
     <script src="../assets/js/browser.min.js"></script>
     <script src="../assets/js/breakpoints.min.js"></script>
     <script src="../assets/js/main.js"></script>
-
-    <script type="text/javascript">
-        let buttons = document.querySelectorAll('input[type="button" ]');
-        let buttonData = Array.from(buttons).map((el, i) => {
-            el.addEventListener('click', () => {
-                const clicked = !buttonData[i].clicked;
-                buttonData[i].clicked = clicked;
-                if (clicked) {
-                    el.classList.add('highlighted');
-                } else {
-                    el.classList.remove('highlighted');
-                }
-            });
-            return {
-                element: el,
-                clicked: false
-            }
-        });
-
-        buttonData.forEach((btn, i) => {
-
-        });
-
-        document.getElementById('check-buttons').addEventListener('click', () => {
-            buttonData.forEach((btn, i) => {
-                console.log("button:", btn.element.id, "is highlighted?", btn.clicked);
-            });
-        });
-    </script>
 
 </body>
 

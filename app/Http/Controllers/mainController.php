@@ -183,8 +183,7 @@ class mainController extends Controller
 
         $type = $type1.$type2.$type3.$type4;
         //echo($type);
-        // $ID_user = Auth::id();
-        $ID_user = 1;
+        $ID_user = Auth::id();
         $maxID = DB::table('result')->max('ID_result');
         if($maxID == null){
             $ID_result = 1;
@@ -203,7 +202,97 @@ class mainController extends Controller
     }
 
     public function artiIntel(request $request){
-        $opt1 = $request->input('button1');
+        $opt1 = $request->input('checkboxOne');
+        $opt2 = $request->input('checkboxTwo');
+        $opt3 = $request->input('checkboxThree');
+        $opt4 = $request->input('checkboxFour');
+        $opt5 = $request->input('checkboxFive');
+        $opt6 = $request->input('checkboxSix');
+        $opt7 = $request->input('checkboxSeven');
+        $opt8 = $request->input('checkboxEight');
+        $opt9 = $request->input('checkboxNine');
+        $opt10 = $request->input('checkboxTen');
+
+        if($opt1 != null){
+
+        }
+        
+        DB::table('majorelective')->insert([
+            'ID_majorElective' => $ID_majorElective,
+            'ID_result' => $ID_result,
+            'ID_subject' => 	$ID_subject
+        ]);
+
+        // return view('MajorElective/comArch');
+    }
+
+    public function comArch(request $request){
+        $opt1 = $request->input('checkboxOne');
+        $opt2 = $request->input('checkboxTwo');
+        $opt3 = $request->input('checkboxThree');
+        $opt4 = $request->input('checkboxFour');
+        $opt5 = $request->input('checkboxFive');
+      
+        echo($opt1);
+    }
+
+    public function ComGraph(request $request){
+        $opt1 = $request->input('checkboxOne');
+        $opt2 = $request->input('checkboxTwo');
+        $opt3 = $request->input('checkboxThree');
+        $opt4 = $request->input('checkboxFour');
+       
+        echo($opt1);
+    }
+
+    public function data(request $request){
+        $opt1 = $request->input('checkboxOne');
+        $opt2 = $request->input('checkboxTwo');
+        $opt3 = $request->input('checkboxThree');
+
+        echo($opt1);
+    }
+
+    public function netSecurity(request $request){
+        $opt1 = $request->input('checkboxOne');
+        $opt2 = $request->input('checkboxTwo');
+        $opt3 = $request->input('checkboxThree');
+        $opt4 = $request->input('checkboxFour');
+        $opt5 = $request->input('checkboxFive');
+        $opt6 = $request->input('checkboxSix');
+        $opt7 = $request->input('checkboxSeven');
+        $opt8 = $request->input('checkboxEight');
+        $opt9 = $request->input('checkboxNine');
+        $opt10 = $request->input('checkboxTen');
+        $opt11 = $request->input('checkboxele');
+        $opt12 = $request->input('checkboxtwel');
+        $opt13 = $request->input('checkboxthirdteen');
+        $opt14 = $request->input('checkboxfourteen');
+       
+        echo($opt1);
+    }
+
+    public function parallel(request $request){
+        $opt1 = $request->input('checkboxOne');
+       
+        echo($opt1);
+    }
+
+    public function ScienComp(request $request){
+        $opt1 = $request->input('checkboxOne');
+       
+        echo($opt1);
+    }
+
+    public function softEn(request $request){
+        $opt1 = $request->input('checkboxOne');
+        $opt2 = $request->input('checkboxTwo');
+        $opt3 = $request->input('checkboxThree');
+        $opt4 = $request->input('checkboxFour');
+        $opt5 = $request->input('checkboxFive');
+        $opt6 = $request->input('checkboxSix');
+        $opt7 = $request->input('checkboxSeven');
+
         echo($opt1);
     }
 }

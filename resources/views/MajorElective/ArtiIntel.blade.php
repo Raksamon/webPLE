@@ -168,16 +168,17 @@
                             <h3 class="major">Artificial Intelligence</h3>
                             <div class="container">
                                 <ul class="ks-cboxtags">
-                                    <li><input type="checkbox" id="checkboxOne" name="checkboxOne" value="Digital Image Processing"><label for="checkboxOne">Digital Image Processing</label></li>
-                                    <li><input type="checkbox" id="checkboxTwo" name="checkboxTwo" value="Fundamentals of Computation for Computer Engineers"><label for="checkboxTwo">Fundamentals of Computation for Computer Engineers</label></li>
-                                    <li><input type="checkbox" id="checkboxThree" name="checkboxThree" value="Introduction to Computational Intelligence for Computer Engineering"><label for="checkboxThree">Introduction to Computational Intelligence for Computer Engineering</label></li>
-                                    <li><input type="checkbox" id="checkboxFour" name="checkboxFour" value="Robotics"><label for="checkboxFour">Robotics</label></li>
-                                    <li><input type="checkbox" id="checkboxFive" name="checkboxFive" value="Bioinformatics Programming"><label for="checkboxFive">Bioinformatics Programming</label></li>
-                                    <li><input type="checkbox" id="checkboxSix" name="checkboxSix" value="Machine Vision"><label for="checkboxSix">Machine Vision</label></li>
-                                    <li><input type="checkbox" id="checkboxSeven" name="checkboxSeven" value="Principles of Control Systems"><label for="checkboxSeven">Principles of Control Systems</label></li>
-                                    <li><input type="checkbox" id="checkboxEight" name="checkboxEight" value="Introduction to Neuro-Fuzzy Systems"><label for="checkboxEight">Introduction to Neuro-Fuzzy Systems</label></li>
-                                    <li><input type="checkbox" id="checkboxNine" name="checkboxNine" value="Computer-Aided Manufacturing"><label for="checkboxNine">Computer-Aided Manufacturing</label></li>
-                                    <li><input type="checkbox" id="checkboxTen" name="checkboxTen" value="NLP"><label for="checkboxTen">NLP</label></li>
+                                    <li><input type="checkbox" id="checkboxOne" name="checkboxOne" value="261453"><label for="checkboxOne">Digital Image Processing</label></li>
+                                    <li><input type="checkbox" id="checkboxTwo" name="checkboxTwo" value="261407"><label for="checkboxTwo">Fundamentals of Computation for Computer Engineers</label></li>
+                                    <li><input type="checkbox" id="checkboxThree" name="checkboxThree" value="261456"><label for="checkboxThree">Introduction to Computational Intelligence for Computer Engineering</label></li>
+                                    <li><input type="checkbox" id="checkboxFour" name="checkboxFour" value="261472"><label for="checkboxFour">Robotics</label></li>
+                                    <li><input type="checkbox" id="checkboxFive" name="checkboxFive" value="261472"><label for="checkboxFive">Bioinformatics Programming</label></li>
+                                    <li><input type="checkbox" id="checkboxSix" name="checkboxSix" value="261458"><label for="checkboxSix">Machine Vision</label></li>
+                                    <li><input type="checkbox" id="checkboxSeven" name="checkboxSeven" value="261478"><label for="checkboxSeven">Principles of Control Systems</label></li>
+                                    <li><input type="checkbox" id="checkboxEight" name="checkboxEight" value="261478"><label for="checkboxEight">Introduction to Neuro-Fuzzy Systems</label></li>
+                                    <li><input type="checkbox" id="checkboxNine" name="checkboxNine" value="261473"><label for="checkboxNine">Computer-Aided Manufacturing</label></li>
+                                    <li><input type="checkbox" id="checkboxTen" name="checkboxTen" value="6"><label for="checkboxTen">NLP</label></li>
+                                    <input type="hidden" id="ID_result" name="ID_result" value={{$ID_result}}>
                                 </ul>
                             </div>
 

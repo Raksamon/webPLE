@@ -80,7 +80,7 @@
 		<div id="wrapper">
 
 			<!-- Panel -->
-			<form action="Test/confirm">
+			<form action="confirm">
 				<div class="panel color2-alt" id="one">
 					<div class="intro color0">
 						<h1 class="major">1</h1>

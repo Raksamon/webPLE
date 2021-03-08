@@ -191,7 +191,7 @@
 		</section> -->
 
 			<!-- Panel -->
-			<section class="panel">
+			<!-- <section class="panel">
 				<div class="intro color2">
 					<h2 class="major">Elit integer</h2>
 					<p>Sed vel nibh libero. Mauris et lorem pharetra massa lorem turpis congue pulvinar. Vivamus sed feugiat finibus. Duis amet bibendum amet sed. Duis mauris ex, dapibus sed ligula tempus volutpat magna etiam.</p>
@@ -211,10 +211,10 @@
 					</div>
 					<a href="images/gallery/fulls/09.jpg" class="image filtered span-2-5" data-position="right"><img src="images/gallery/thumbs/09.jpg" alt="" /></a>
 				</div>
-			</section>
+			</section> -->
 
 			<!-- Panel -->
-			<section class="panel color4-alt">
+			<!-- <section class="panel color4-alt">
 				<div class="intro color4">
 					<h2 class="major">Contact</h2>
 					<p>Sed vel nibh libero. Mauris et lorem pharetra massa lorem turpis congue pulvinar. Vivamus sed feugiat finibus. Duis amet bibendum amet sed. Duis mauris ex, dapibus sed ligula tempus volutpat magna etiam.</p>
@@ -251,10 +251,10 @@
 						</ul>
 					</div>
 				</div>
-			</section>
+			</section> -->
 
 			<!-- Panel -->
-			<section class="panel color2-alt">
+			<!-- <section class="panel color2-alt">
 				<div class="intro color2">
 					<h2 class="major">Elements</h2>
 					<p>Sed vel nibh libero. Mauris et lorem pharetra massa lorem turpis congue pulvinar. Vivamus sed feugiat finibus. Duis amet bibendum amet sed. Duis mauris ex, dapibus sed ligula tempus volutpat magna etiam. </p>
@@ -520,21 +520,21 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						</form>
 					</div>
 				</div>
-			</section>
+			</section> -->
 
 			<!-- Copyright -->
-			<div class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
+			<!-- <div class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
 
 		</div>
 
-	</div>
+	</div> -->
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
+	<!-- <script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/main.js"></script>
 
 </body>
 
-</html>
+</html> -->

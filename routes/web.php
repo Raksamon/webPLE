@@ -29,48 +29,6 @@ Route::get('/MajorElective', function () {
 });
 Route::get('MajorElective/confirm','App\Http\Controllers\mainController@majorElective');
 
-// Route::get('/ArtiIntel', function () {
-//     return view('ArtiIntel');
-// });
-// Route::get('Test/ArtiIntel/confirm','App\Http\Controllers\mainController@artiIntel');
-
-// Route::get('/comArch', function () {
-//     return view('comArch');
-// });
-// Route::get('comArch/confirm','App\Http\Controllers\mainController@comArch');
-
-// Route::get('/netSecurity', function () {
-//     return view('netSecurity');
-// });
-// Route::get('netSecurity/confirm','App\Http\Controllers\mainController@netSecurity');
-
-// Route::get('/data', function () {
-//     return view('data');
-// });
-// Route::get('MajorElective/data/confirm','App\Http\Controllers\mainController@data');
-
-// Route::get('/ComGraph', function () {
-//     return view('ComGraph');
-// });
-// Route::get('ComGraph/confirm','App\Http\Controllers\mainController@ComGraph');
-
-// Route::get('/softEn', function () {
-//     return view('softEn');
-// });
-// Route::get('softEn/confirm','App\Http\Controllers\mainController@softEn');
-
-// Route::get('/ScienComp', function () {
-//     return view('ScienComp');
-// });
-// Route::get('/ScienComp/confirm','App\Http\Controllers\mainController@ScienComp');
-
-// Route::get('/parallel', function () {
-//     return view('parallel');
-// });
-// Route::get('parallel/confirm','App\Http\Controllers\mainController@parallel');
-
-
-
 Route::get('/result', function () {
     return view('result');
 });

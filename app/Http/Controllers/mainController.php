@@ -190,7 +190,7 @@ class mainController extends Controller
         }
 
         $type = $type1 . $type2 . $type3 . $type4;
-        //echo($type);
+        // echo($type);
         $ID_user = Auth::id();
         $maxID = DB::table('result')->max('ID_result');
         if ($maxID == null) {
@@ -298,7 +298,7 @@ class mainController extends Controller
             $ID_top3 = $maxIDt +1;
         }
         $rank = 1;
-        for($i=0; $rank < 5; $i++){
+        for($i=0; $rank < 4; $i++){
             if($i == 0){
                 DB::table('top3')->insert([ 
                     'ID_top3'=> $ID_top3+$i,
@@ -331,4 +331,20 @@ class mainController extends Controller
 
         // return view('result', ['ID_result' => $ID_result]);
     }
+
+    public function predictJob(request $request){
+        $personalityType = DB::select('select personality
+        FROM result 
+        where ID_result=?',);
+
+        // $majorRank1 = DB::select('select 
+        // FROM ID_top3 
+        // where ID_result=?',);
+
+        // $majorRank2 = DB::select('select personality
+        // FROM ID_top3 
+        // where ID_result=?',);
+    }
+    
+
 }

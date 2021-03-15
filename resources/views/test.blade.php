@@ -67,8 +67,8 @@
 			@csrf
 		</form>
 		<a href="#result">Test results</a>
-		<a href="#test">Personality test</a>
-		<a href="#home" class="active">Home</a>
+		<a href="#test" class="active">Personality test</a>
+		<a href="#home">Home</a>
 		<i class="fa fa-user-circle">&nbsp;&nbsp;{{Auth::user()->name}}</i>
 	</div>
 
@@ -371,14 +371,14 @@
 								<input type="radio" id="control_a13" name="select13" value="a13">
 								<label for="control_a13">
 									<h3>A. มิตรภาพในวงกว้างกับผู้คนที่หลากหลาย</h3>
-									<img src="images/option/a13.png" alt="" />
+									<img src="images/option/b13.png" alt="" />
 								</label>
 							</div>
 							<div class="content span-2">
 								<input type="radio" id="control_b13" name="select13" value="b13">
 								<label for="control_b13">
 									<h3>B. มิตรภาพที่ลึกซึ้งกับคนไม่กี่คน</h3>
-									<img src="images/option/b13.png" alt="" />
+									<img src="images/option/a13.png" alt="" />
 								</label>
 							</div>
 						</div>

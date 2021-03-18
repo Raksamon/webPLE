@@ -136,15 +136,17 @@
 </head>
 
 <body class="is-preload">
-    <div class="navbar">
+    <div class="navbar align-right">
         <a href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
-        <a href="#result">Test results</a>
-        <a href="#test">Personality test</a>
-        <a href="#home" class="active">Home</a>
+        <!-- <a href="/result">Result</a>
+        <a href="{{URL::to('/MajorElctive')}}" class="active">Major Elective</a>
+        <a href="{{URL::to('/confirm')}}">Personality test</a> -->
+        <a href="{{URL::to('/history')}}">History</a>
+        <a href="{{URL::to('/home')}}">Home</a>
         <i class="fa fa-user-circle">&nbsp;&nbsp;{{Auth::user()->name}}</i>
     </div>
 
@@ -183,7 +185,7 @@
                             </div>
                         </div>
 
-                        <div class="span-4-75">
+                        <div class="span-5">
                             <h3 class="major">Computer Architecture and Organisation</h3>
                             <div class="container">
                                 <ul class="ks-cboxtags">
@@ -192,7 +194,7 @@
                                     <li><input type="checkbox" id="checkboxthirteen" name="checkboxthirteen" value="261414"><label for="checkboxthirteen">Digital System Design</label></li>
                                     <li><input type="checkbox" id="checkboxfourteen" name="checkboxfourteen" value="261468"><label for="checkboxfourteen">System Analysis and Design for Computer Engineering</label></li>
                                     <li><input type="checkbox" id="checkboxfifteen" name="checkboxfifteen" value="261424"><label for="checkboxfifteen">Remote Monitoring and Control Systems</label></li>
-
+                                    <li><input type="checkbox" id="checkboxfifteen" name="checkboxfortyseven" value="261410"><label for="checkboxfortyseven">Electronic Device for Computer Enginering</label></li>
                                 </ul>
                             </div>
                         </div>
@@ -203,7 +205,7 @@
                                 <ul class="ks-cboxtags">
                                     <li><input type="checkbox" id="checkboxsixteen" name="checkboxsixteen" value="269430"><label for="checkboxsixteen">Wireless and Broadband Computer Networks</label></li>
                                     <li><input type="checkbox" id="checkboxseventeen" name="checkboxseventeen" value="261435"><label for="checkboxseventeen">Broadband Communication Networks</label></li>
-                                    <li><input type="checkbox" id="checkboxeighteen" name="checkboxeighteen" value="261437"><label for="checkboxeighteen">Fundamentals of Multiprotocol Label Switching</label></li>
+                                    <li><input type="checkbox" id="checkboxeighteen" name="checkboxeighteen" value="261438"><label for="checkboxeighteen">Fundamentals of Multiprotocol Label Switching</label></li>
                                     <li><input type="checkbox" id="checkboxnineteen" name="checkboxnineteen" value="261434"><label for="checkboxnineteen">Computer Network Design and Management</label></li>
                                     <li><input type="checkbox" id="checkboxtwenty" name="checkboxtwenty" value="269421"><label for="checkboxtwenty">Computer Network Traffic Analysis</label></li>
                                     <li><input type="checkbox" id="checkboxtwentyone" name="checkboxtwentyone" value="261470"><label for="checkboxtwentyone">Signal and Systems</label></li>

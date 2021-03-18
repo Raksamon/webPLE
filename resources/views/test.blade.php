@@ -53,22 +53,23 @@
 			float: left;
 			margin: 15px;
 			font-size: 23px;
-
 		}
 	</style>
 </head>
 
 <body class="is-preload">
 
-	<div class="navbar">
+	<div class="navbar align-right">
 		<a href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">Logout</a>
 		<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 			@csrf
 		</form>
-		<a href="#result">Test results</a>
-		<a href="#test" class="active">Personality test</a>
-		<a href="#home">Home</a>
+		<!-- <a href="/result">Result</a>
+		<a href="{{URL::to('/MajorElctive')}}">Major Elective</a>
+		<a href="{{URL::to('/confirm')}}" class="active">Personality test</a> -->
+		<a href="{{URL::to('/history')}}">History</a>
+		<a href="{{URL::to('/home')}}">Home</a>
 		<i class="fa fa-user-circle">&nbsp;&nbsp;{{Auth::user()->name}}</i>
 	</div>
 
@@ -80,7 +81,8 @@
 		<div id="wrapper">
 
 			<!-- Panel -->
-			<form action="confirm">
+			<form action="confirm" onSubmit="JavaScript:return fncSubmit();">
+
 				<div class="panel color2-alt" id="one">
 					<div class="intro color0">
 						<h1 class="major">1</h1>
@@ -89,7 +91,7 @@
 					<div class="inner columns divided">
 						<div class="content span-2">
 							<div class="action" href="#two">
-								<input type="radio" id="control_a1" name="select1" value="a1">
+								<input type="radio" id="control_a1" name="select1" value="a1" class="radio" id="one">
 								<label for="control_a1">
 									<h3>A. มีส่วนร่วมในการพูดคุย</h3>
 									<img src="images/option/a1.png" alt="" />
@@ -544,13 +546,12 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="panel banner right">
 						<div class="content color0 span-1-75">
-							
+
 							<h2>ส่งคำตอบ</h2>
-							<button type="submit" class="button primary color1 circle icon solid fa-angle-right">ส่งคำตอบ</button>
-						
+							<button type="submit" class="button primary color1 circle icon solid fa-angle-right" onclick="fncSubmit()">ส่งคำตอบ</button>
+
 						</div>
 					</div>
 				</div>
@@ -563,6 +564,29 @@
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<script type="text/javascript">
+		function fncSubmit() {
+
+			if (document.getElementsByName('select1').checked == false && document.getElementsByName('select2').checked == false) {
+				alert('PLEASE CHECK TRUE');
+				return false;
+			}
+		}
+	</script>
+
+	<script>
+		let btn = document.getElementById('btnRate');
+
+		btn.addEventListener('click', () => {
+			let rates = document.getElementsByName('rate');
+			rates.forEach((rate) => {
+				if (rate.checked) {
+					alert(`You rated: ${rate.value}`);
+				}
+			})
+		});
+	</script>
 
 </body>
 

@@ -61,15 +61,17 @@
 
 <body class="is-preload">
 
-	<div class="navbar">
+	<div class="navbar align-right">
 		<a href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">Logout</a>
 		<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 			@csrf
 		</form>
-		<a href="#result">Test results</a>
-		<a href="#test">Personality test</a>
-		<a href="#home" class="active">Home</a>
+		<!-- <a href="/result">Result</a>
+		<a href="{{URL::to('/MajorElctive')}}">Major Elective</a>
+		<a href="{{URL::to('/test')}}">Personality test</a> -->
+		<a href="{{URL::to('/history')}}">History</a>
+		<a href="{{URL::to('/home')}}" class="active">Home</a>
 		<i class="fa fa-user-circle">&nbsp;&nbsp;{{Auth::user()->name}}</i>
 	</div>
 
@@ -119,21 +121,22 @@
 					<div class="actions">
 						<div class="align-left">
 
-							
-							<a href="Test" class="button primary color1 circle icon solid fa-angle-right"></a><h3>ทำแบบทดสอบ</h3>
+
+							<a href="Test" class="button primary color1 circle icon solid fa-angle-right"></a>
+							<h3>ทำแบบทดสอบ</h3>
 
 						</div>
 					</div>
 				</div>
 				<div class="inner columns divided">
 					<ul class="content span-2-75">
-						<li><strong>E | I</strong>Extraversion | Introvertsion:<br>
+						<li><strong>E | I</strong>&nbsp  Extraversion | Introvertsion:<br>
 							ช่วยเรื่องการสื่อสาร การสร้างความไว้วางใจ และการดูแลพลังงานของตัวเอง</li><br>
-						<li><strong>S | N</strong>Sensing | iNtuition:<br>
+						<li><strong>S | N</strong>&nbsp  Sensing | iNtuition:<br>
 							ช่วยเรื่องการเข้าใจเรื่องการให้คุณค่าข้อมูลและการมองภาพที่แตกต่าง การใช้ภาษา (การสื่อสาร) และโฟกัสในTimeline ของแต่ละคน </li><br>
-						<li><strong>T | F</strong>Thinking | Feeling:<br>
+						<li><strong>T | F</strong>&nbsp  Thinking | Feeling:<br>
 							ช่วยเรื่องการสร้างบรรยากาศในที่ทำงาน การได้รับ Feedback การให้ค่าของเหตุผล</li><br>
-						<li><strong>J | P</strong>Judging-Perceiving:<br>
+						<li><strong>J | P</strong>&nbsp  Judging-Perceiving:<br>
 							ช่วยเรื่องการบริหารจัดการการทำงาน การเข้าใจมุมมองที่มีต่อการปรับตัวเข้าหาโลกภายนอกและทัศนคติที่ต่างกัน</li>
 					</ul>
 					<div class="content span-2-75">

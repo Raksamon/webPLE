@@ -255,14 +255,17 @@ class mainController extends Controller
         $opt44 = $request->input('checkboxfortyfour');
         $opt45 = $request->input('checkboxfortyfive');
         $opt46 = $request->input('checkboxfortysix');
+        $opt47 = $request->input('checkboxfortyseven');
 
         $ID_result = $request->input('ID_result');
 
         //options array
-        $opts = array($opt1, $opt2, $opt3, $opt4, $opt5, $opt6, $opt7, $opt8, $opt9, $opt10, $opt11, $opt12, $opt13, 
-        $opt14, $opt15, $opt16, $opt17, $opt18, $opt19, $opt20, $opt21, $opt22, $opt23, $opt24, $opt25, $opt26, 
-        $opt27, $opt28,$opt29, $opt30, $opt31, $opt32, $opt33, $opt35, $opt36, $opt37, $opt38, $opt39, $opt40, 
-        $opt41, $opt42, $opt43, $opt44, $opt45, $opt46);
+        $opts = array(
+            $opt1, $opt2, $opt3, $opt4, $opt5, $opt6, $opt7, $opt8, $opt9, $opt10, $opt11, $opt12, $opt13,
+            $opt14, $opt15, $opt16, $opt17, $opt18, $opt19, $opt20, $opt21, $opt22, $opt23, $opt24, $opt25, $opt26,
+            $opt27, $opt28, $opt29, $opt30, $opt31, $opt32, $opt33, $opt35, $opt36, $opt37, $opt38, $opt39, $opt40,
+            $opt41, $opt42, $opt43, $opt44, $opt45, $opt46, $opt47
+        );
 
         //find max to generate ID_majorElective
         $maxID = DB::table('majorelective')->max('ID_majorElective');
@@ -289,62 +292,242 @@ class mainController extends Controller
         using (ID_subject) 
         where ID_result=?
         GROUP by (ID_group) 
-        ORDER BY count(ID_subject) DESC',[$ID_result]);
+        ORDER BY count(ID_subject) DESC', [$ID_result]);
 
         $maxIDt = DB::table('top3')->max('ID_top3');
         if ($maxIDt == null) {
             $ID_top3 = 1;
         } else {
-            $ID_top3 = $maxIDt +1;
+            $ID_top3 = $maxIDt + 1;
         }
         $rank = 1;
-        for($i=0; $rank < 4; $i++){
-            if($i == 0){
-                DB::table('top3')->insert([ 
-                    'ID_top3'=> $ID_top3+$i,
+        for ($i = 0; $rank < 4; $i++) {
+            if (!isset($top[$i])) {
+                break;
+            }
+            if ($i == 0) {
+                DB::table('top3')->insert([
+                    'ID_top3' => $ID_top3 + $i,
                     'ID_result' => $ID_result,
                     'ID_group' => $top[$i]->ID_group,
                     'rank' => $rank
-                    ]);
+                ]);
                 continue;
             }
-            if($top[$i-1]->countSubject == $top[$i]->countSubject){
-                DB::table('top3')->insert([ 
-                    'ID_top3'=> $ID_top3+$i,
+            if ($top[$i - 1]->countSubject == $top[$i]->countSubject) {
+                DB::table('top3')->insert([
+                    'ID_top3' => $ID_top3 + $i,
                     'ID_result' => $ID_result,
                     'ID_group' => $top[$i]->ID_group,
                     'rank' => $rank
-                    ]);
+                ]);
                 continue;
             }
             $rank++;
-            DB::table('top3')->insert([ 
-                'ID_top3'=> $ID_top3+$i,
+            DB::table('top3')->insert([
+                'ID_top3' => $ID_top3 + $i,
                 'ID_result' => $ID_result,
                 'ID_group' => $top[$i]->ID_group,
                 'rank' => $rank
-                ]);
+            ]);
         }
 
-        // print_r($top);
-        // echo($top[0]->ID_group);
+        $personalityKey = DB::table('result')->select('personality')->where('ID_result', '=', $ID_result)->value('personality');
+        $personalityType = DB::table('personalitytype')->where('type', '=', $personalityKey)->get();
+        $joboftype = DB::table('personalitytype')->select('job')->where('type', '=', $personalityKey)->value('job');
+        $majorRank1 = DB::table('top3')->select('ID_group')->where('ID_result', '=', $ID_result)->where('rank', '=', 1)->value('ID_group');
+        $majorRank2 = DB::table('top3')->select('ID_group')->where('ID_result', '=', $ID_result)->where('rank', '=', 2)->value('ID_group');
+        $majorRank3 = DB::table('top3')->select('ID_group')->where('ID_result', '=', $ID_result)->where('rank', '=', 3)->value('ID_group');
+        $rank1 = DB::table('subjectgroup')->select('groupName')->where('ID_group', '=', $majorRank1)->value('groupName');
+        $rank2 = DB::table('subjectgroup')->select('groupName')->where('ID_group', '=', $majorRank2)->value('groupName');
+        $rank3 = DB::table('subjectgroup')->select('groupName')->where('ID_group', '=', $majorRank3)->value('groupName');
+        $job = null;
+        $part = null;
+        // major group 1 =	Artificial Intelligence
+        // major group 2 = Computer Architecture and Organisation
+        // major group 3 = Network and Security
+        // major group 4 = Databases and Data Mining
+        // major group 5 = Computer Graphics and Visualization
+        // major group 6 = Software Engineering
+        // major group 7 = Scientific Computing and Simulation
+        // major group 8 = Concurrent, parallel and distributed systems
 
-        // return view('result', ['ID_result' => $ID_result]);
+        if ($personalityKey == 'ISTJ') {
+            if ($majorRank1 == 6) {
+                if ($majorRank2 == 2 or $majorRank2 == 4) {
+                    $job = 'อาจารย์';
+                    $part = 'สายผู้สอนหลักสูตรไอที / ฝึกอบรมด้านไอที';
+                    DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                    DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+                }
+                if ($majorRank2 == 5) {
+                    $job = 'นักวิชาการคอมพิวเตอร์';
+                    $part = 'Developing Software';
+                    DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                    DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+                }
+            }
+            if ($majorRank1 == 3) {
+                $job = 'พนักงานระบบงานคอมพิวเตอร์';
+                $part = 'Developing Website';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+
+            if ($majorRank1 == 1) {
+                $job = 'Front-end Developer';
+                $part = 'Developing Website';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+        }
+
+        if ($personalityKey == 'ESFJ') {
+            $job = 'DevOps Engineering';
+            $part = 'Cyber Security, Developing Website, IT management';
+            DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+            DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+        }
+
+        if ($personalityKey == 'ISFP') {
+            if ($majorRank2 == 3) {
+                $job = 'Quality Assurance(QA)';
+                $part = 'Quality Assurance';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank2 == 2) {
+                $job = 'Software Engineer';
+                $part = 'Developing Software, Developing Website';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank2 == 1) {
+                $job = 'Front end and Back end Developer';
+                $part = 'Developing Website';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank2 == 4) {
+                $job = 'Back end Developer';
+                $part = 'Developing Website';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+        }
+
+        if ($personalityKey == 'ESTJ') {
+            if ($majorRank1 == 6) {
+                $job = 'Software Developer';
+                $part = 'Developing Software';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank1 == 4) {
+                $job = 'FAVP';
+                $part = 'Data Science';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+        }
+
+        if ($personalityKey == 'INTP') {
+            if ($majorRank1 == 1) {
+                $job = 'CTO (หัวหน้าเจ้าหน้าที่เทคโนโลยี)';
+                $part = 'Developing Software,  System Analyst, IT management';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank1 == 3) {
+                $job = 'Software Engineer';
+                $part = 'Cyber Security,  Database Administrator, Developing Software';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank1 == 6) {
+                $job = 'Back end Developer';
+                $part = 'Developing Website';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+        }
+
+        if ($personalityKey == 'ISTP') {
+            if ($majorRank1 == 1) {
+                $job = 'Developer';
+                $part = 'Developing Software,  System Analyst';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank1 == 3) {
+                $job = 'Cyber security consultant';
+                $part = 'Cyber Security';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank1 == 4) {
+                $job = 'Computer System Analyst';
+                $part = 'Developing Software, System Analyst';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank1 == 5) {
+                $job = 'นักวิชาการคอมพิวเตอร์';
+                $part = 'Developing Website, IT Support, สายการออกแบบ/เขียนแบบด้วยคอมพิวเตอร์/งานสามมิติ/Animation';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+        }
+
+
+        if ($personalityKey == 'ESFP') {
+            if ($majorRank1 == 3) {
+                $job = 'Cloud Engineer ';
+                $part = 'IT Consultant';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank1 == 5) {
+                $job = 'Character design / illustrations ';
+                $part = 'Illustration';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+        }
+
+        if ($personalityKey == 'ESTP') {
+            if ($majorRank1 == 1) {
+                $job = 'Machine Learning';
+                $part = 'IT Consultant';
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+            }
+            if ($majorRank1 == 6) {
+                if ($majorRank2 = 4) {
+                    $job = 'Software Developer';
+                    $part = 'Developing Website';
+                    DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                    DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+                }
+                if ($majorRank2 == 5) {
+                    $job = 'RPA Developer';
+                    $part = 'Developing Website';
+                    DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
+                    DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
+                }
+            }
+        }
+        // echo($personalityType);
+
+        return view('/result', ['personalityKey' => $personalityKey, 'personalityType' =>  $personalityType, 'joboftype' => $joboftype
+        , 'rank1' => $rank1, 'rank2' => $rank2, 'job' => $job, 'part' => $part]);
     }
 
-    public function predictJob(request $request){
-        $personalityType = DB::select('select personality
-        FROM result 
-        where ID_result=?',);
+    public function history(request $request)
+    {
+        $id = Auth::id();
+        $hi = DB::table('result')->join('personalitytype','result.personality','=','personalitytype.type')->where('ID_user', '=', $id)->orderBy('ID_result','ASC')->get();
 
-        // $majorRank1 = DB::select('select 
-        // FROM ID_top3 
-        // where ID_result=?',);
-
-        // $majorRank2 = DB::select('select personality
-        // FROM ID_top3 
-        // where ID_result=?',);
+        return view('/history', ['hi' => $hi]);
     }
-    
-
 }

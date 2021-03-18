@@ -15,9 +15,13 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/Home', function () {
+Route::get('/home', function () {
     return view('index');
 });
+
+// Route::get('/history', function () {
+//     return view('history');
+// });
 
 Route::get('/Test', function () {
     return view('test');
@@ -29,12 +33,8 @@ Route::get('/MajorElective', function () {
 });
 Route::get('MajorElective/confirm','App\Http\Controllers\mainController@majorElective');
 
-Route::get('/result', function () {
-    return view('result');
-});
+Route::get('/history','App\Http\Controllers\mainController@history');
 
-
-// Route::get('/result', 'App\Http\Controllers\mainController@test');
 Auth::routes();
 Route::post('/userCheck','App\Http\Controllers\registerController@userReg');
 

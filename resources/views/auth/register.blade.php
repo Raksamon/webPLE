@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="images/picon.ico">
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>

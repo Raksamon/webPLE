@@ -7,10 +7,11 @@
 <html>
 
 <head>
-	<title>webPLE</title>
+	<title>webPLE | Result</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/main.css"/>
+	<link rel="shortcut icon" href="images/picon.ico">
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" />
 	</noscript>
@@ -129,7 +130,7 @@
 			<!-- Panel (Banner) -->
 			<section class="panel color2-alt">
 				<div class="inner columns divided">
-					<div class="span-4-25">
+					<div class="span-4">
 						<h1 class="major">"{{$personalityKey}}" type<br>
 							@foreach($personalityType as $type)
 							{{$type->title}}
@@ -141,7 +142,7 @@
 							<li><a href="#one" class="button primary color1 circle icon solid fa-angle-right">Take the test</a></li>
 						</ul>
 					</div>
-					<div class="span-4-75">
+					<div class="span-4">
 						<h1 class="major">อาชีพที่เหมาะสมกับลักษณะบุคลิกภาพ</h1>
 						<br>
 						<blockquote>

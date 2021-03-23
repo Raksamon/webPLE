@@ -11,6 +11,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="shortcut icon" href="images/picon.ico">
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -548,10 +549,8 @@
 					</div>
 					<div class="panel banner right">
 						<div class="content color0 span-1-75">
-
 							<h2>ส่งคำตอบ</h2>
 							<button type="submit" class="button primary color1 circle icon solid fa-angle-right" onclick="fncSubmit()">ส่งคำตอบ</button>
-
 						</div>
 					</div>
 				</div>
@@ -573,19 +572,6 @@
 				return false;
 			}
 		}
-	</script>
-
-	<script>
-		let btn = document.getElementById('btnRate');
-
-		btn.addEventListener('click', () => {
-			let rates = document.getElementsByName('rate');
-			rates.forEach((rate) => {
-				if (rate.checked) {
-					alert(`You rated: ${rate.value}`);
-				}
-			})
-		});
 	</script>
 
 </body>

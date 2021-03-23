@@ -384,7 +384,7 @@ class mainController extends Controller
 
         if ($personalityKey == 'ESFJ') {
             $job = 'DevOps Engineering';
-            $part = 'Cyber Security, Developing Website, IT management';
+            $part = 'Cyber Security, Developing Website, IT management, Network';
             DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
             DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
         }
@@ -434,7 +434,7 @@ class mainController extends Controller
         if ($personalityKey == 'INTP') {
             if ($majorRank1 == 1) {
                 $job = 'CTO (หัวหน้าเจ้าหน้าที่เทคโนโลยี)';
-                $part = 'Developing Software,  System Analyst, IT management';
+                $part = 'Developing Software, Developing Website, E-Commerce & Digital Marketing, IT Consultant, IT management, System Analyst, สายผู้สอนหลักสูตรไอที / ฝึกอบรมด้านไอที';
                 DB::table('result')->where('ID_result', '=', $ID_result)->update(['predictJob' => $job]);
                 DB::table('result')->where('ID_result', '=', $ID_result)->update(['jobPart' => $part]);
             }

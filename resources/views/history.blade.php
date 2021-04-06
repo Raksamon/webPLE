@@ -82,9 +82,6 @@
 		<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 			@csrf
 		</form>
-		<!-- <a href="/result">Result</a>
-		<a href="{{URL::to('/MajorElctive')}}">Major Elective</a>
-		<a href="{{URL::to('/test')}}">Personality test</a> -->
 		<a href="{{URL::to('/history')}}" class="active">History</a>
 		<a href="{{URL::to('/home')}}">Home</a>
 		<i class="fa fa-user-circle">&nbsp;&nbsp;{{Auth::user()->name}}</i>

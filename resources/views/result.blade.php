@@ -10,7 +10,7 @@
 	<title>webPLE | Result</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="../assets/css/main.css"/>
+	<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="shortcut icon" href="images/picon.ico">
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" />
@@ -148,6 +148,10 @@
 						<blockquote>
 							<h3>{{$joboftype}}</h3>
 						</blockquote>
+						<br>
+						<!-- <ul class="actions">
+							<li><a href="#two" class="button primary color1 circle icon solid fa-angle-right">Take the test</a></li>
+						</ul> -->
 					</div>
 				</div>
 				<!-- <div class="image filtered span-1-75" data-position="25% 25%">
@@ -163,10 +167,7 @@
 						<h3>{{$rank1}}</h3>
 						<h3>{{$rank2}}</h3>
 					</blockquote>
-					<br>
-					<ul class="actions">
-						<li><a href="#two" class="button primary color1 circle icon solid fa-angle-right">Take the test</a></li>
-					</ul>
+
 				</div>
 				<!-- <div class="image filtered span-3-75" data-position="25% 25%">
 					<img src="../images/pic01.jpg" alt="" />

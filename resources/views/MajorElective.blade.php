@@ -195,7 +195,7 @@
                                     <li><input type="checkbox" id="checkboxthirteen" name="checkboxthirteen" value="261414"><label for="checkboxthirteen">Digital System Design</label></li>
                                     <li><input type="checkbox" id="checkboxfourteen" name="checkboxfourteen" value="261468"><label for="checkboxfourteen">System Analysis and Design for Computer Engineering</label></li>
                                     <li><input type="checkbox" id="checkboxfifteen" name="checkboxfifteen" value="261424"><label for="checkboxfifteen">Remote Monitoring and Control Systems</label></li>
-                                    <li><input type="checkbox" id="checkboxfifteen" name="checkboxfortyseven" value="261410"><label for="checkboxfortyseven">Electronic Device for Computer Enginering</label></li>
+                                    <li><input type="checkbox" id="checkboxfortyseven" name="checkboxfortyseven" value="261410"><label for="checkboxfortyseven">Electronic Device for Computer Enginering</label></li>
                                 </ul>
                             </div>
                         </div>
@@ -245,7 +245,7 @@
                             </div>
                         </div>
 
-                        <div class="span-5">
+                        <div class="span-5-75">
                             <h3 class="major">Software Engineering</h3>
                             <div class="container">
                                 <ul class="ks-cboxtags">
